@@ -6,7 +6,7 @@
 #    By: mjouffro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/14 17:13:59 by mjouffro          #+#    #+#              #
-#    Updated: 2018/11/15 12:26:06 by mjouffro         ###   ########.fr        #
+#    Updated: 2018/11/20 19:32:45 by pthan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,7 @@ SRCS =	ft_atoi.c					\
 		ft_isalpha.c				\
 		ft_isascii.c				\
 		ft_isdigit.c				\
-		ft_islower.c                \
-		ft_isupper.c				\
 		ft_isprint.c				\
-		ft_iswhitespace.c			\
 		ft_memalloc.c				\
 		ft_memccpy.c				\
 		ft_memchr.c					\

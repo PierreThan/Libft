@@ -1,31 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pthan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 09:02:08 by pthan             #+#    #+#             */
-/*   Updated: 2018/11/20 09:07:12 by pthan            ###   ########.fr       */
+/*   Created: 2018/11/20 19:19:38 by pthan             #+#    #+#             */
+/*   Updated: 2018/11/20 19:31:31 by pthan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+int		is_whitespace(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n')
+		return (1);
+	return (0);
+}
+
+char	*ft_strtrim(char const *s)
 {
 	size_t	i;
+	char	*res;
 
-	i = 0;
-	while (src[i] && i < len)
+	res = NULL;
+	if (s)
 	{
-		dst[i] = src[i];
-		i++;
+		i = ft_strlen(s);
+		while (is_whitespace(s[i]))
+		{
+			s++;
+			i--;
+		}
+		while (is_whitespace(s[i]))
+			i--;
+		if ((res = (char*)malloc(sizeof(char) * (i + 1))) == NULL)
+			return (NULL);
+		while (i--)
+		{
+			*res = *s;
+			res++;
+			s++;
+		}
+		*res = '\0';
 	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
+	return (res);
 }
