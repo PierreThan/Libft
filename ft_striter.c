@@ -2,11 +2,11 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	if (s)
+	if (s && f)
 	{
 		while (*s)
 		{
-			(*f)(s);
+			f(s);
 			s++;
 		}
 	}
