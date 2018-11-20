@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	int	i;
 	int	j;
@@ -11,10 +11,9 @@ char	*ft_strcat(char *restrict s1, const char *restrict s2)
 		i++;
 	while (s2[j])
 	{
-		s1[i] = s2[j];
-		i++;
+		s1[i + j] = s2[j];
 		j++;
 	}
-	s1[i] = '\0';
+	s1[i + j] = '\0';
 	return	(s1);
 }
