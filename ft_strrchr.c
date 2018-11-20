@@ -2,18 +2,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
-	char	*res;
+	char	*tmp;
+	int	n;
 
-	res = 0;
-	i = 0;
-	while (s[i])
+	tmp = (char*)s;
+	n = ft_strlen(tmp);
+	if (s == 0)
+		return (0);
+	if (c == 0)
+		return (tmp + n);
+	while (n > 0)
 	{
-		if (s[i] == (char) (c))
-			res = (char *) (s + i);
-		i++;
+		n--;
+		if (*(tmp + n) == (char) (c))
+			return (tmp + n);
 	}
-	if ( (char) (c) == '\0')
-		res = (char *) (s + i);
-	return (res);
+	return (NULL);
 }
