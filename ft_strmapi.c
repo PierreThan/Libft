@@ -24,7 +24,7 @@ char	*ft_strmap(char const *s, char (*f)(unsigned int, char))
 		res = ft_strnew(ft_strlen(s));
 		while (*s)
 		{
-			*res = (*f)(n, *s);
+			*res = f(n, *s);
 			n++;
 			s++;
 			res++;

@@ -22,7 +22,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 		res = ft_strnew(ft_strlen(s));
 		while (*s)
 		{
-			*res = (*f)(*s);
+			*res = f(*s);
 			s++;
 			res++;
 		}
