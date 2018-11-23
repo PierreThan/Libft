@@ -12,14 +12,6 @@
 
 #include "libft.h"
 
-int	is_whitespace(char c)
-{
-	if ((c == ' ' || c == '\t' || c == '\n' || c == '\r')
-		|| (c == '\v' || c == '\f'))
-		return (1);
-	return (0);
-}
-
 int	ft_atoi(const char *str)
 {
 	int	n;
@@ -29,7 +21,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	n = 1;
 	res = 0;
-	while (str[i] && is_whitespace(str[i]))
+	while (str[i] && ft_iswhitespace(str[i]))
 		i++;
 	if (str[i] == '-')
 		n = -1;

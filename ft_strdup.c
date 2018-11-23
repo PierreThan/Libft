@@ -16,14 +16,8 @@ char	*ft_strdup(const char *s1)
 {
 	char	*res;
 
-	if ((res = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char))) == NULL)
+	if (!(res = ft_strnew(ft_strlen(s1))))
 		return (NULL);
-	while (*s1)
-	{
-		*res = *s1;
-		res++;
-		s1++;
-	}
-	*res = '\0';
+	res = ft_strcpy(res, s1);
 	return (res);
 }

@@ -28,6 +28,7 @@ SRCS =		ft_atoi.c				\
 		ft_isdigit.c				\
 		ft_isprint.c				\
 		ft_itoa.c				\
+		ft_iswhitespace.c			\
 		ft_memalloc.c				\
 		ft_memccpy.c				\
 		ft_memchr.c				\
@@ -110,7 +111,7 @@ $(NAME) :
 clean:
 	rm -rf $(OBJS)
 
-fclean:
+fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all

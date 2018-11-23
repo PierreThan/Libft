@@ -19,8 +19,6 @@ size_t	ft_nb_line_tab(char const *s, char c)
 
 	i = 0;
 	n = 0;
-	if (!s)
-		return (1);
 	if (!c)
 		return (2);
 	while (s[i])
@@ -44,9 +42,9 @@ char	**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	n = 0;
-	if ((res = (char**)malloc(sizeof(char*) * ft_nb_line_tab(s, c))) == NULL)
+	if (!(res = (char**)malloc(sizeof(char*) * ft_nb_line_tab(s, c))))
 		return (NULL);
-	while (s && s[i])
+	while (s[i])
 	{
 		j = 0;
 		while (s[i] && s[i] == c)
@@ -58,7 +56,7 @@ char	**ft_strsplit(char const *s, char c)
 		//}
 		while (s[i + j] && s[i + j] != c)
 			j++;
-		if ((res[n] = ft_strsub(s, (unsigned int)i, j)) == NULL)
+		if (!(res[n] = ft_strsub(s, (unsigned int)i, i + j)))
 			return (NULL);
 		i += j;
 		n++;

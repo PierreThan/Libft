@@ -12,38 +12,22 @@
 
 #include "libft.h"
 
-int		is_whitespace(char c)
-{
-	if (c == ' ' || c == '\t' || c == '\n')
-		return (1);
-	return (0);
-}
-
 char	*ft_strtrim(char const *s)
 {
-	size_t	i;
+	size_t	n;
+	size_t	l;
 	char	*res;
 
 	res = NULL;
-	if (s)
-	{
-		i = ft_strlen(s);
-		while (is_whitespace(s[i]))
-		{
-			s++;
-			i--;
-		}
-		while (is_whitespace(s[i]))
-			i--;
-		if ((res = (char*)malloc(sizeof(char) * (i + 1))) == NULL)
-			return (NULL);
-		while (i--)
-		{
-			*res = *s;
-			res++;
-			s++;
-		}
-		*res = '\0';
-	}
+	n = 0;
+	while (ft_iswhitespace(*s))
+		s++;
+	l = ft_strlen(s);
+	if (!l)
+		return (res = ft_strnew(0));
+	while (ft_iswhitespace(s[l - n - 1]))
+		n++;
+	if (!(res = ft_strsub(s, 0, l - n - 1)))
+		return (NULL);
 	return (res);
 }
