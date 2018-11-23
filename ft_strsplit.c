@@ -12,16 +12,15 @@
 
 #include "libft.h"
 
-size_t	ft_nb_line_tab(s, c)
+size_t	ft_nb_line_tab(char const *s, char c)
 {
-	char	**res;
 	size_t	i;
 	size_t	n;
 
 	i = 0;
 	n = 0;
 	if (!s)
-		return (0);
+		return (1);
 	if (!c)
 		return (2);
 	while (s[i])
@@ -41,23 +40,29 @@ char	**ft_strsplit(char const *s, char c)
 	size_t	n;
 	size_t	i;
 	size_t	j;
-	char	*res;
+	char	**res;
 
 	i = 0;
-	j = 0;
-	n = -1;
-	res = (char**)malloc(sizeof(char*) * n);
-	while (res && s && c && s[i])		////TERMINER REMPLISSAGE DU TAB
+	n = 0;
+	if ((res = (char**)malloc(sizeof(char*) * ft_nb_line_tab(s, c))) == NULL)
+		return (NULL);
+	while (s && s[i])
 	{
-		n++;
+		j = 0;
 		while (s[i] && s[i] == c)
 			i++;
-		if (s[i] == '\0')
-		{
-			res [n] = 0;
-			return (res);
-		}
+		//if (s[i] == '\0')
+		//{
+		//	res [n] = 0;
+		//	return (res);
+		//}
 		while (s[i + j] && s[i + j] != c)
 			j++;
+		if ((res[n] = ft_strsub(s, (unsigned int)i, j)) == NULL)
+			return (NULL);
+		i += j;
+		n++;
 	}
+	res[n] = 0;
+	return (res);
 }
