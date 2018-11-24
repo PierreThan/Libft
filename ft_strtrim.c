@@ -18,16 +18,15 @@ char	*ft_strtrim(char const *s)
 	size_t	l;
 	char	*res;
 
-	res = NULL;
 	n = 0;
-	while (ft_iswhitespace(*s))
-		s++;
-	l = ft_strlen(s);
-	if (!l)
-		return (res = ft_strnew(0));
-	while (ft_iswhitespace(s[l - n - 1]))
+	while (ft_iswhitespace(s[n]))
 		n++;
-	if (!(res = ft_strsub(s, 0, l - n - 1)))
+	if (!s[n])
+		return (ft_strnew(0));
+	l = ft_strlen(s);
+	while (ft_iswhitespace(s[l - 1]))
+		l--;
+	if (!(res = ft_strsub(s, n, l - n)))
 		return (NULL);
 	return (res);
 }

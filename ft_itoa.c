@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_itoa_length(int n)
+static size_t	ft_itoa_length(int n)
 {
 	size_t		len;
 	unsigned int	nb;
@@ -25,7 +25,7 @@ size_t	ft_itoa_length(int n)
 	}
 	else
 		nb = (unsigned int)n;
-	while (nb >= 10)
+	if (nb >= 10)
 		len += ft_itoa_length((int)(nb / 10));
 	return (len);
 }
