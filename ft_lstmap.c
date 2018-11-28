@@ -2,24 +2,21 @@
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*tmp;
 	t_list	*res;
-	size_t	n;
+	t_list	*tmp1;
+	t_list	*tmp2;
 
-	n = 0;
-	tmp = lst;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		n++;
-	}
-	if (!(res = (t_list*)malloc(sizeof(t_list*) * n)))
+	if (!f || !lst)
 		return (NULL);
-	tmp = res;
-	while (n--)
+	res = f(lst);
+	tmp1 = res;
+	tmp2 = res;
+	lst = lst->next;
+	while (lst)
 	{
-		tmp = f(lst);
-		tmp = tmp->next;
+		tmp1 = f(lst);
+		tmp2->next = tmp1;
+		tmp2 = tmp1;
 		lst = lst->next;
 	}
 	return (res);
