@@ -1,3 +1,5 @@
+		HEADER HEADER HEADER HEADER
+
 #include "libft.h"
 
 int	ft_iswhitespace(char c)
