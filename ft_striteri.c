@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pthan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: pthan <pthan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 16:04:07 by pthan             #+#    #+#             */
-/*   Updated: 2018/11/20 16:04:23 by pthan            ###   ########.fr       */
+/*   Updated: 2018/11/25 13:25:01 by pthan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	unsigned int	n;
 
 	n = 0;
-	while (*s)
+	while (s && *s && f)
 	{
 		f(n, s);
 		n++;

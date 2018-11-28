@@ -19,6 +19,8 @@ char	*ft_strtrim(char const *s)
 	char	*res;
 
 	n = 0;
+	if (!s)
+		return (NULL);
 	while (ft_iswhitespace(s[n]))
 		n++;
 	if (!s[n])
