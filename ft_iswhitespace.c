@@ -1,4 +1,4 @@
-		HEADER HEADER HEADER HEADER
+////		HEADER HEADER HEADER HEADER
 
 #include "libft.h"
 
